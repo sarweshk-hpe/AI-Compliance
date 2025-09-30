@@ -10,7 +10,7 @@ git clone <repo-url>
 cd Actum
 
 # Start the full stack
-docker-compose up -d
+docker-compose up -d postgres minio redis
 
 # Access the services
 # Admin UI: http://localhost:3000
@@ -71,13 +71,4 @@ npm install
 npm run dev
 ```
 
-## Team Roles
 
-- **Cybersecurity Expert** — Security & compliance, HMAC signing, threat model
-- **Full-Stack Developer** — Backend API, database, deployment
-- **Data & AI Developer** — Pattern detection, risk classification
-- **UI Expert** — Admin dashboard, demo flow, user experience
-
-## License
-
-Internal HPE project for hackathon demonstration.
