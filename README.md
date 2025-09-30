@@ -2,7 +2,7 @@
 
 **AI Compliance Engine:** policy tags, risk labels, blocking for sensitive patterns (e.g., biometric ID), and an immutable audit trail mapped to the EU AI Act.
 
-## Quick Start (Hackathon Demo)
+## Quick Start
 
 ```bash
 # Clone and setup
