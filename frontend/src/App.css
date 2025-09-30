@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #2e2e2e;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom styles for Actum using HPE Design System Light Colors */
+.actum-gradient {
+  background: linear-gradient(135deg, #01a982 0%, #17eba0 100%);
+}
+
+/* Modern Card Styles */
+.actum-card {
+  @apply bg-white rounded-xl p-6 border-0 transition-all duration-300 ease-in-out;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.actum-card:hover {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Modern Card Variants */
+.actum-card-elevated {
+  @apply bg-white rounded-xl p-6 border-0 transition-all duration-300 ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.actum-card-elevated:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+}
+
+.actum-card-glass {
+  @apply bg-white/80 backdrop-blur-sm rounded-xl p-6 border-0 transition-all duration-300 ease-in-out;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.actum-card-glass:hover {
+  @apply bg-white/90;
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+  transform: translateY(-2px);
+}
+
+.actum-card-gradient {
+  @apply rounded-xl p-6 border-0 transition-all duration-300 ease-in-out;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.actum-card-gradient:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-3px);
+}
+
+/* Modern Card with Accent Border */
+.actum-card-accent {
+  @apply bg-white rounded-xl p-6 border-0 border-l-4 border-l-hpe-brand transition-all duration-300 ease-in-out;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.actum-card-accent:hover {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Modern Card with Icon Background */
+.actum-card-icon-bg {
+  @apply bg-white rounded-xl p-6 border-0 transition-all duration-300 ease-in-out relative overflow-hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.actum-card-icon-bg::before {
+  content: '';
+  @apply absolute top-0 right-0 w-24 h-24 opacity-5;
+  background: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.actum-card-icon-bg:hover {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Modern Stats Card */
+.actum-card-stats {
+  @apply bg-white rounded-xl p-6 border-0 transition-all duration-300 ease-in-out;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+}
+
+.actum-card-stats:hover {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* Modern Table Card */
+.actum-card-table {
+  @apply bg-white rounded-xl border-0 transition-all duration-300 ease-in-out overflow-hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.actum-card-table:hover {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Modern Badge Styles */
+.actum-badge-modern {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium transition-all duration-200;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.actum-badge-modern:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.actum-button {
+  @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+}
+
+.actum-button-primary {
+  @apply actum-button bg-hpe-brand text-white hover:bg-hpe-dark-green;
+}
+
+.actum-button-secondary {
+  @apply actum-button bg-hpe-bg-light-background-back text-hpe-text-light-text-strong hover:bg-hpe-bg-light-background-contrast;
+}
+
+.actum-button-danger {
+  @apply actum-button bg-hpe-status-light-critical text-white hover:bg-hpe-status-dark-critical;
+}
+
+.actum-button-success {
+  @apply actum-button bg-hpe-status-light-ok text-white hover:bg-hpe-status-dark-ok;
+}
+
+.actum-button-warning {
+  @apply actum-button bg-hpe-status-light-warning text-white hover:bg-hpe-status-dark-warning;
+}
+
+.actum-input {
+  @apply w-full px-3 py-2 border border-hpe-border-light-border rounded-md focus:outline-none focus:ring-2 focus:ring-hpe-focus focus:border-transparent bg-white text-hpe-text-light-text-strong;
+}
+
+.actum-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.actum-badge-success {
+  @apply actum-badge bg-hpe-input-light-validation-ok text-hpe-status-light-ok;
+}
+
+.actum-badge-warning {
+  @apply actum-badge bg-hpe-input-light-validation-warning text-hpe-status-light-warning;
+}
+
+.actum-badge-danger {
+  @apply actum-badge bg-hpe-input-light-validation-critical text-hpe-status-light-critical;
+}
+
+.actum-badge-info {
+  @apply actum-badge bg-hpe-light-blue text-hpe-core-blue;
+}
+
+/* HPE Design System specific utility classes */
+.hpe-text-brand {
+  @apply text-hpe-brand;
+}
+
+.hpe-bg-brand {
+  @apply bg-hpe-brand;
+}
+
+.hpe-border-brand {
+  @apply border-hpe-brand;
+}
+
+.hpe-text-success {
+  @apply text-hpe-status-light-ok;
+}
+
+.hpe-bg-success {
+  @apply bg-hpe-status-light-ok;
+}
+
+.hpe-text-warning {
+  @apply text-hpe-status-light-warning;
+}
+
+.hpe-bg-warning {
+  @apply bg-hpe-status-light-warning;
+}
+
+.hpe-text-error {
+  @apply text-hpe-status-light-critical;
+}
+
+.hpe-bg-error {
+  @apply bg-hpe-status-light-critical;
+}
+
+.hpe-text-info {
+  @apply text-hpe-core-blue;
+}
+
+.hpe-bg-info {
+  @apply bg-hpe-core-blue;
+}
+
+/* HPE Focus styles for accessibility */
+.hpe-focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-hpe-focus focus:ring-offset-2;
+}
+
+/* HPE Elevation utilities - only use when specifically needed */
+.hpe-elevation-small {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.hpe-elevation-medium {
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.12);
+}
+
+.hpe-elevation-large {
+  box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.24);
+}
+
+/* Light theme only - consistent HPE light colors */
+.actum-main-bg {
+  @apply bg-hpe-bg-light-background;
+}
+
+.actum-sidebar-bg {
+  @apply bg-hpe-bg-light-background-back;
+}
+
+.actum-content-bg {
+  @apply bg-hpe-bg-light-background-front;
+}
+
+.actum-text-primary {
+  @apply text-hpe-text-light-text-strong;
+}
+
+.actum-text-secondary {
+  @apply text-hpe-text-light-text;
+}
+
+.actum-text-muted {
+  @apply text-hpe-text-light-text-weak;
+}
+
+.actum-border {
+  @apply border-hpe-border-light-border;
+}
+
+.actum-border-strong {
+  @apply border-hpe-border-light-border-strong;
+}
+
+.actum-border-weak {
+  @apply border-hpe-border-light-border-weak;
+}

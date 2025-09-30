@@ -1,0 +1,26 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+sqlalchemy
+psycopg2-binary
+redis
+minio
+PyJWT
+passlib[bcrypt]
+python-multipart
+opencv-python
+pillow
+spacy
+scikit-learn
+numpy
+pandas
+python-dotenv
+httpx
+pytest
+pytest-asyncio
+
+# AI/LLM Dependencies
+langchain
+langchain-nvidia-ai-endpoints
+langchain-community

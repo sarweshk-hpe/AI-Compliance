@@ -1,0 +1,85 @@
+services:
+  # Backend API
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://actum:actum123@postgres:5432/actum
+      - REDIS_URL=redis://redis:6379
+      - MINIO_ENDPOINT=minio:9000
+      - MINIO_ACCESS_KEY=actum
+      - MINIO_SECRET_KEY=actum123
+      - JWT_SECRET_KEY=your-super-secret-jwt-key-change-in-production
+    depends_on:
+      - postgres
+      - redis
+      - minio
+    volumes:
+      - ./backend:/app
+    networks:
+      - actum-network
+
+  # Frontend Admin UI
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8001
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - actum-network
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=actum
+      - POSTGRES_USER=actum
+      - POSTGRES_PASSWORD=actum123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - actum-network
+
+  # Redis for caching and sessions
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - actum-network
+
+  # MinIO for object storage (evidence, images)
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=actum
+      - MINIO_ROOT_PASSWORD=actum123
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - actum-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
+
+networks:
+  actum-network:
+    driver: bridge
