@@ -16,6 +16,19 @@ docker-compose up -d postgres minio redis
 # Admin UI: http://localhost:3000
 # API Docs: http://localhost:8000/docs
 # Database: localhost:5432
+
+# Backend development
+cd backend
+uv venv
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+uv pip install -r requirements.txt
+uvicorn main:app --reload
+
+# Frontend development
+cd frontend
+npm install
+npm run dev
+
 ```
 
 ## Architecture Overview
