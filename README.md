@@ -10,7 +10,7 @@ git clone <repo-url>
 cd Actum
 
 # Start the full stack
-docker-compose up -d postgres minio redis
+docker-compose up -d
 
 # Access the services
 # Admin UI: http://localhost:3000
