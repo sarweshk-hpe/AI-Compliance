@@ -1,24 +1,26 @@
+# Base image
 FROM node:18-alpine
 
+# Set working directory
 WORKDIR /app
 
+# Install pnpm (recommended way: via corepack)
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 # Copy package files
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml* ./
 
 # Install dependencies
-RUN npm install
+RUN pnpm install --frozen-lockfile
 
-# Copy application code (excluding node_modules)
+# Copy source code
 COPY . .
 
-# Build the application
-RUN npm run build
+# Build your app (if needed)
+RUN pnpm build
 
-# Install serve to run the built app
-RUN npm install -g serve
-
-# Expose port
+# Expose port (example: 3000)
 EXPOSE 3000
 
-# Start the application
-CMD ["serve", "-s", "build", "-l", "3000"]
+# Start the app
+CMD ["pnpm", "start"]
